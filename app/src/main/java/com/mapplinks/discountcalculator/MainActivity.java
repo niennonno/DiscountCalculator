@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,31 +38,43 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 calculate();
-                resultView.setText("The result is: " + result);
             }
         });
 
     }
 
     void clear(){
-        priceView.setText("0.00");
-        discountView.setText("0.00");
-        addnView.setText("0.00");
-        taxView.setText("0.00");
-        resultView.setText("0.00");
+        priceView.setText("");
+        discountView.setText("");
+        addnView.setText("");
+        taxView.setText("");
+        resultView.setText("");
     }
 
-    void calculate(){
-        price = Double.parseDouble(priceView.getText().toString());
-        discount = Double.parseDouble(discountView.getText().toString());
-        addn = Double.parseDouble(addnView.getText().toString());
-        tax = Double.parseDouble(taxView.getText().toString());
-        result = price - (price*discount/100);
-        result -= (result*addn/100);
+    void calculate() {
+        if (priceView.getText().toString().isEmpty() || discountView.getText().toString().isEmpty()) {
+            Toast.makeText(MainActivity.this, "Enter both price and Discount", Toast.LENGTH_SHORT).show();
+        } else {
+            price = Double.parseDouble(priceView.getText().toString());
+            discount = Double.parseDouble(discountView.getText().toString());
+            if(addnView.getText().toString().isEmpty())
+                addn=0.0;
+            else
+                addn = Double.parseDouble(addnView.getText().toString());
 
-        result += (price*tax/100);
+            if (taxView.getText().toString().isEmpty())
+                tax=0.0;
+            else
+                tax = Double.parseDouble(taxView.getText().toString());
 
-        saving = (price*tax/100) - result;
+            result = price - (price * discount / 100);
+            result -= (result * addn / 100);
+
+            result += (price * tax / 100);
+
+            saving = (price + (price * tax / 100)) - result;
+            resultView.setText("The result is: " + result + "\nYou save: " + saving);
+        }
     }
 
 
@@ -80,7 +93,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.refresh) {
+            clear();
             return true;
         }
 

@@ -13,54 +13,84 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <EditText
-        android:id="@+id/price"
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="Price"
-        android:inputType="numberDecimal" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/discount"
+        <EditText
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/rect_box"
+            android:gravity="center"
+            android:hint="Price"
+            android:inputType="numberDecimal"
+            android:padding="8dp" />
+
+        <EditText
+            android:id="@+id/discount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/rect_box"
+            android:gravity="center"
+            android:hint="Discount"
+            android:inputType="numberDecimal"
+            android:padding="8dp" />
+    </TableRow>
+
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="Discount"
-        android:inputType="numberDecimal" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/addn_discount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="Additional Discount"
-        android:inputType="numberDecimal" />
+        <EditText
+            android:id="@+id/addn_discount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/rect_box"
+            android:gravity="center"
+            android:hint="@string/addn_disc"
+            android:inputType="numberDecimal"
+            android:padding="8dp" />
 
-    <EditText
-        android:id="@+id/tax"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="Tax"
-        android:inputType="numberDecimal" />
-
-    <TextView
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingTop="8dp"
-        android:text="Result"
-        android:textSize="24sp" />
+        <EditText
+            android:id="@+id/tax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/rect_box"
+            android:gravity="center"
+            android:hint="Tax"
+            android:inputType="numberDecimal"
+            android:padding="8dp" />
+    </TableRow>
 
     <Button
         android:id="@+id/calculate_but"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:paddingTop="4dp"
         android:text="Calculate" />
 
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/rect_box"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Result"
+        android:textSize="24sp" />
 
 </LinearLayout>
