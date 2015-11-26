@@ -2,4 +2,7 @@
     <string name="app_name">Discount Calculator</string>
     <string name="action_settings">Settings</string>
     <string name="addn_disc"><font size="12">Additional Discount</font></string>
+    <string name="disc"><font size="12">Discount</font></string>
+    <string name="price"><font size="12">Price</font></string>
+    <string name="tax"><font size="12">Tax</font></string>
 </resources>

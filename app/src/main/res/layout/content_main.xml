@@ -25,7 +25,7 @@
             android:layout_weight="1"
             android:background="@drawable/rect_box"
             android:gravity="center"
-            android:hint="Price"
+            android:hint="@string/price"
             android:inputType="numberDecimal"
             android:padding="8dp" />
 
@@ -38,7 +38,7 @@
             android:layout_weight="1"
             android:background="@drawable/rect_box"
             android:gravity="center"
-            android:hint="Discount"
+            android:hint="@string/disc"
             android:inputType="numberDecimal"
             android:padding="8dp" />
     </TableRow>
@@ -69,7 +69,7 @@
             android:layout_weight="1"
             android:background="@drawable/rect_box"
             android:gravity="center"
-            android:hint="Tax"
+            android:hint="@string/tax"
             android:inputType="numberDecimal"
             android:padding="8dp" />
     </TableRow>
