@@ -11,11 +11,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText priceView, discountView, addnView, taxView;
     TextView resultView;
     Button calculate;
+    DecimalFormat f = new DecimalFormat("#.##");
     double price, discount, addn, tax, result, saving ;
 
     @Override
@@ -73,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             result += (price * tax / 100);
 
             saving = (price + (price * tax / 100)) - result;
-            resultView.setText("The result is: " + result + "\nYou save: " + saving);
+            resultView.setText("The result is: " + f.format(result) + "\nYou save: " + f.format(saving) );
         }
     }
 
