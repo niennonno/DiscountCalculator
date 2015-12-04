@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mixpanel.android.mpmetrics.MixpanelAPI;
+
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        String projectToken = "996731db4d64a925fb3485c18e51701c"; // e.g.: "1ef7e30d2a58d27f4b90c42e31d6d7ad"
+        final MixpanelAPI mixpanel = MixpanelAPI.getInstance(this, projectToken);
+
         priceView = (EditText)findViewById(R.id.price);
         discountView = (EditText)findViewById(R.id.discount);
         addnView = (EditText) findViewById(R.id.addn_discount);
@@ -40,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mixpanel.track("Calculate");
                 calculate();
             }
         });
